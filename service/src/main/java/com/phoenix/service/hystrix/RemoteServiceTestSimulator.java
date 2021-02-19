@@ -1,9 +1,12 @@
+/*
 package com.phoenix.service.hystrix;
 
+*/
 /**
  * @author tianFeng
  * @version 1.0, 2018/07/30
- */
+ *//*
+
 
 public class RemoteServiceTestSimulator {
 
@@ -18,3 +21,4 @@ public class RemoteServiceTestSimulator {
         return "Success";
     }
 }
+*/

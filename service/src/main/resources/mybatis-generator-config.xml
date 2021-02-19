@@ -54,7 +54,7 @@
         
         <!--要根据哪张表生成，要在这里配置-->
         <!--用百分号表示生成所有表,可以直接省去一个一个写 <table tableName="%" /> -->
-        <table tableName="tb_user" domainObjectName="User"
+        <table tableName="supplier_category" domainObjectName="User"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false" >
         <!-- <property name="useActualColumnNames" value="true"/>-->

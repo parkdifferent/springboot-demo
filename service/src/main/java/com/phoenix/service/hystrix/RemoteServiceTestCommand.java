@@ -1,11 +1,14 @@
+/*
 package com.phoenix.service.hystrix;
 
 import com.netflix.hystrix.HystrixCommand;
 
+*/
 /**
  * @author tianFeng
  * @version 1.0, 2018/07/30
- */
+ *//*
+
 
 public class RemoteServiceTestCommand extends HystrixCommand<String> {
 
@@ -21,3 +24,4 @@ public class RemoteServiceTestCommand extends HystrixCommand<String> {
         return remoteServiceTestSimulator.execute();
     }
 }
+*/
