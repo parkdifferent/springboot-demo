@@ -1,4 +1,4 @@
-package com.phoenix.netty;
+package java.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -29,9 +29,9 @@ public class EchoServer {
         }*/
         //int port = Integer.parseInt(args[0]);
         int port = 9080;
-        new EchoServer(port).start();
+        //new EchoServer(port).start();
     }
-    public void start() throws InterruptedException {
+    /*public void start() throws InterruptedException {
         final EchoServerHandler serverHandler = new EchoServerHandler();
         EventLoopGroup group = new NioEventLoopGroup();
         try {
@@ -51,5 +51,5 @@ public class EchoServer {
         } finally {
             group.shutdownGracefully().sync();
         }
-    }
+    }*/
 }

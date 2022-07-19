@@ -1,10 +1,20 @@
 package com.phoenix.web.controller;
 
 
-public enum StrategyEnum {
+/**
+ * @author phoenix
+ */
 
-    A(1, "A strategy"),
-    B(2, "B strategy")
+public enum PayStrategyEnum {
+
+    /**
+     * 阿里支付
+     */
+    ALI_PAY(1,"com.ultiwill.strategy.impl.AliPayStrategy"),
+    /**
+     * 微信支付
+     */
+    WECHAT_PAY(2,"com.ultiwill.strategy.impl.WeChatPayStrategy")
 
     ;
 
@@ -12,7 +22,7 @@ public enum StrategyEnum {
 
     private String desc;
 
-    StrategyEnum(Integer type, String desc) {
+    PayStrategyEnum(Integer type, String desc) {
         this.type = type;
         this.desc = desc;
     }

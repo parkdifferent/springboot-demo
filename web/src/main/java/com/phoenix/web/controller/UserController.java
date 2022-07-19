@@ -1,5 +1,6 @@
 package com.phoenix.web.controller;
 
+import com.github.pagehelper.PageHelper;
 import com.phoenix.common.dto.UserForm;
 import com.phoenix.common.model.User;
 import com.phoenix.common.model.UserVO;
@@ -88,6 +89,8 @@ public class UserController {
                 userVOList.add(userVO);
             }
         }
+
+        PageHelper.startPage(1, 10);
 
         return userVOList;
     }

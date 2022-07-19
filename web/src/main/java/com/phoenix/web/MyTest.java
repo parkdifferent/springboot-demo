@@ -3,12 +3,16 @@ package com.phoenix.web;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import com.ibm.icu.util.ULocale;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
 /**
@@ -17,14 +21,70 @@ import java.util.stream.Collectors;
  */
 public class MyTest {
 
+    public static void test() {
+
+        List<Long> myList = null;
+        for (Long l : myList) {
+            System.out.println(l);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            AtomicLong existsSingleItemCouponId = new AtomicLong(0L);
+            for (int j = 0; j < 3; j++) {
+                System.out.println(existsSingleItemCouponId);
+                existsSingleItemCouponId.set(1);
+
+            }
+        }
+    }
+
     public static void main(String[] args) {
+
+        Stack stack = new Stack();
+        Queue queue = new LinkedBlockingQueue();
+
+        char[][] c = new char[][]{};
+
+        //String[]
+        //Math.max();
+        //Math.min()
+
+        //Executors.newScheduledThreadPool()
+        //Executors.newFixedThreadPool()
+
+        int[] a = {4, 1, 5};
+        Arrays.sort(a);
+        for (int j = 0; j < a.length; j++) {
+            System.out.println(a[j]);
+        }
+
+
+        List<Long> shopIdList = Lists.newArrayList();
+        shopIdList.add(111L);
+        shopIdList.add(222L);
+        Integer shopType = 1;
+        String hello = Joiner.on("#").join("#", "hello", shopIdList, Optional.ofNullable(shopType).orElse(0));
+        System.out.println(hello);
+
+        System.out.println(5555817632L % 1000 % 256);
+        System.out.println(240356 % 128);
+
+
+        //test();
+
+        String itemUse = String.format("限%s商品可用；", "123");
+        System.out.println(itemUse);
+
+
 
         testInt(1);
 
-        for (int k = 0; k < 50; k++) {
-            System.out.println("ALTER TABLE box_" + k + " ADD (source tinyint(4) default 0, state tinyint(4) default 0, \n" +
+        for (int k = 0; k < 256; k++) {
+            /*System.out.println("ALTER TABLE box_" + k + " ADD (source tinyint(4) default 0, state tinyint(4) default 0, \n" +
                     "box_time datetime, operate_box_id bigint(20), operate_box_name varchar(128), \n" +
-                    "out_time datetime, operate_out_id bigint(20), operate_out_name varchar(128));");
+                    "out_time datetime, operate_out_id bigint(20), operate_out_name varchar(128));");*/
+            //System.out.println("ALTER TABLE dispute" + k +" ADD dispute_type tinyint(4) DEFAULT 1 NOT NULL COMMENT '1-退款单 2-补偿单 3-退货退款单';");
+            //System.out.println("ALTER TABLE dispute" + k + " ADD compensation_detail varchar(1024) DEFAULT ''  COMMENT '补偿详情';");
         }
 
         List<String> alist = new ArrayList<>();

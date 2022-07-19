@@ -1,4 +1,4 @@
-package com.phoenix.algo;
+package com;
 
 /**
  * @author tianFeng
