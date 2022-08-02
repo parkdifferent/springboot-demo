@@ -1,4 +1,4 @@
-package com;
+package com.phoenix.web;
 
 /**
  * @author tianFeng

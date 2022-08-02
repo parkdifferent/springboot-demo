@@ -1,4 +1,4 @@
-package java.netty;
+package com.phoenix.web.netty111;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
