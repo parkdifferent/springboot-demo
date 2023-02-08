@@ -122,6 +122,11 @@
             <artifactId>jackson-module-parameter-names</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.roaringbitmap</groupId>
+            <artifactId>RoaringBitmap</artifactId>
+        </dependency>
+
 
 
         <!-- swagger-mvc -->
@@ -169,6 +174,11 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
 
+        <!--<dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+        </dependency>-->
+
         <dependency>
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
@@ -180,6 +190,12 @@
             <artifactId>icu4j</artifactId>
             <version>64.2</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.roaringbitmap</groupId>
+            <artifactId>RoaringBitmap</artifactId>
+            <version>0.9.10</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

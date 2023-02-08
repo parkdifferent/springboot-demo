@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.BdLivePlanProductDao">
+
+    <resultMap id="BaseResultMap" type="entity.BdLivePlanProduct">
+        <!--@Table bd_live_plan_product-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+        <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+        <result property="isDeleted" column="is_deleted" jdbcType="INTEGER"/>
+        <result property="liveDate" column="live_date" jdbcType="VARCHAR"/>
+        <result property="anchorName" column="anchor_name" jdbcType="VARCHAR"/>
+        <result property="anchorId" column="anchor_id" jdbcType="VARCHAR"/>
+        <result property="itemId" column="item_id" jdbcType="VARCHAR"/>
+        <result property="styleCode" column="style_code" jdbcType="VARCHAR"/>
+        <result property="barCode" column="bar_code" jdbcType="VARCHAR"/>
+        <result property="itemName" column="item_name" jdbcType="VARCHAR"/>
+        <result property="livePrice" column="live_price" jdbcType="VARCHAR"/>
+        <result property="itemImg" column="item_img" jdbcType="VARCHAR"/>
+        <result property="brand" column="brand" jdbcType="VARCHAR"/>
+        <result property="gaeaCatLv1Name" column="gaea_cat_lv1_name" jdbcType="VARCHAR"/>
+        <result property="purchasePrincipal" column="purchase_principal" jdbcType="VARCHAR"/>
+        <result property="shopType" column="shop_type" jdbcType="VARCHAR"/>
+        <result property="department" column="department" jdbcType="VARCHAR"/>
+        <result property="shopName" column="shop_name" jdbcType="VARCHAR"/>
+        <result property="shopId" column="shop_id" jdbcType="VARCHAR"/>
+        <result property="supplierName" column="supplier_name" jdbcType="VARCHAR"/>
+        <result property="shipTimeLimit" column="ship_time_limit" jdbcType="VARCHAR"/>
+        <result property="contractSubject" column="contract_subject" jdbcType="VARCHAR"/>
+        <result property="paymentAmount" column="payment_amount" jdbcType="INTEGER"/>
+        <result property="nextRefundAmount" column="next_refund_amount" jdbcType="INTEGER"/>
+        <result property="refundAmount" column="refund_amount" jdbcType="INTEGER"/>
+        <result property="liveOrderVolume" column="live_order_volume" jdbcType="INTEGER"/>
+        <result property="catLv1Name" column="cat_lv1_name" jdbcType="VARCHAR"/>
+        <result property="md5" column="md5" jdbcType="VARCHAR"/>
+        <result property="creator" column="creator" jdbcType="VARCHAR"/>
+        <result property="modifier" column="modifier" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          id, gmt_create, gmt_modified, is_deleted, live_date, anchor_name, anchor_id, item_id, style_code, bar_code, item_name, live_price, item_img, brand, gaea_cat_lv1_name, purchase_principal, shop_type, department, shop_name, shop_id, supplier_name, ship_time_limit, contract_subject, payment_amount, next_refund_amount, refund_amount, live_order_volume, cat_lv1_name, md5, creator, modifier
+        from bd_live_plan_product
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          id, gmt_create, gmt_modified, is_deleted, live_date, anchor_name, anchor_id, item_id, style_code, bar_code, item_name, live_price, item_img, brand, gaea_cat_lv1_name, purchase_principal, shop_type, department, shop_name, shop_id, supplier_name, ship_time_limit, contract_subject, payment_amount, next_refund_amount, refund_amount, live_order_volume, cat_lv1_name, md5, creator, modifier
+        from bd_live_plan_product
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="gmtCreate != null">
+                and gmt_create = #{gmtCreate}
+            </if>
+            <if test="gmtModified != null">
+                and gmt_modified = #{gmtModified}
+            </if>
+            <if test="isDeleted != null">
+                and is_deleted = #{isDeleted}
+            </if>
+            <if test="liveDate != null and liveDate != ''">
+                and live_date = #{liveDate}
+            </if>
+            <if test="anchorName != null and anchorName != ''">
+                and anchor_name = #{anchorName}
+            </if>
+            <if test="anchorId != null and anchorId != ''">
+                and anchor_id = #{anchorId}
+            </if>
+            <if test="itemId != null and itemId != ''">
+                and item_id = #{itemId}
+            </if>
+            <if test="styleCode != null and styleCode != ''">
+                and style_code = #{styleCode}
+            </if>
+            <if test="barCode != null and barCode != ''">
+                and bar_code = #{barCode}
+            </if>
+            <if test="itemName != null and itemName != ''">
+                and item_name = #{itemName}
+            </if>
+            <if test="livePrice != null">
+                and live_price = #{livePrice}
+            </if>
+            <if test="itemImg != null and itemImg != ''">
+                and item_img = #{itemImg}
+            </if>
+            <if test="brand != null and brand != ''">
+                and brand = #{brand}
+            </if>
+            <if test="gaeaCatLv1Name != null and gaeaCatLv1Name != ''">
+                and gaea_cat_lv1_name = #{gaeaCatLv1Name}
+            </if>
+            <if test="purchasePrincipal != null and purchasePrincipal != ''">
+                and purchase_principal = #{purchasePrincipal}
+            </if>
+            <if test="shopType != null and shopType != ''">
+                and shop_type = #{shopType}
+            </if>
+            <if test="department != null and department != ''">
+                and department = #{department}
+            </if>
+            <if test="shopName != null and shopName != ''">
+                and shop_name = #{shopName}
+            </if>
+            <if test="shopId != null and shopId != ''">
+                and shop_id = #{shopId}
+            </if>
+            <if test="supplierName != null and supplierName != ''">
+                and supplier_name = #{supplierName}
+            </if>
+            <if test="shipTimeLimit != null and shipTimeLimit != ''">
+                and ship_time_limit = #{shipTimeLimit}
+            </if>
+            <if test="contractSubject != null and contractSubject != ''">
+                and contract_subject = #{contractSubject}
+            </if>
+            <if test="paymentAmount != null">
+                and payment_amount = #{paymentAmount}
+            </if>
+            <if test="nextRefundAmount != null">
+                and next_refund_amount = #{nextRefundAmount}
+            </if>
+            <if test="refundAmount != null">
+                and refund_amount = #{refundAmount}
+            </if>
+            <if test="liveOrderVolume != null">
+                and live_order_volume = #{liveOrderVolume}
+            </if>
+            <if test="catLv1Name != null and catLv1Name != ''">
+                and cat_lv1_name = #{catLv1Name}
+            </if>
+            <if test="md5 != null and md5 != ''">
+                and md5 = #{md5}
+            </if>
+            <if test="creator != null and creator != ''">
+                and creator = #{creator}
+            </if>
+            <if test="modifier != null and modifier != ''">
+                and modifier = #{modifier}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          id, gmt_create, gmt_modified, is_deleted, live_date, anchor_name, anchor_id, item_id, style_code, bar_code, item_name, live_price, item_img, brand, gaea_cat_lv1_name, purchase_principal, shop_type, department, shop_name, shop_id, supplier_name, ship_time_limit, contract_subject, payment_amount, next_refund_amount, refund_amount, live_order_volume, cat_lv1_name, md5, creator, modifier
+        from work.bd_live_plan_product
+    </select>
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from bd_live_plan_product
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="gmtCreate != null">
+                and gmt_create = #{gmtCreate}
+            </if>
+            <if test="gmtModified != null">
+                and gmt_modified = #{gmtModified}
+            </if>
+            <if test="isDeleted != null">
+                and is_deleted = #{isDeleted}
+            </if>
+            <if test="liveDate != null and liveDate != ''">
+                and live_date = #{liveDate}
+            </if>
+            <if test="anchorName != null and anchorName != ''">
+                and anchor_name = #{anchorName}
+            </if>
+            <if test="anchorId != null and anchorId != ''">
+                and anchor_id = #{anchorId}
+            </if>
+            <if test="itemId != null and itemId != ''">
+                and item_id = #{itemId}
+            </if>
+            <if test="styleCode != null and styleCode != ''">
+                and style_code = #{styleCode}
+            </if>
+            <if test="barCode != null and barCode != ''">
+                and bar_code = #{barCode}
+            </if>
+            <if test="itemName != null and itemName != ''">
+                and item_name = #{itemName}
+            </if>
+            <if test="livePrice != null">
+                and live_price = #{livePrice}
+            </if>
+            <if test="itemImg != null and itemImg != ''">
+                and item_img = #{itemImg}
+            </if>
+            <if test="brand != null and brand != ''">
+                and brand = #{brand}
+            </if>
+            <if test="gaeaCatLv1Name != null and gaeaCatLv1Name != ''">
+                and gaea_cat_lv1_name = #{gaeaCatLv1Name}
+            </if>
+            <if test="purchasePrincipal != null and purchasePrincipal != ''">
+                and purchase_principal = #{purchasePrincipal}
+            </if>
+            <if test="shopType != null and shopType != ''">
+                and shop_type = #{shopType}
+            </if>
+            <if test="department != null and department != ''">
+                and department = #{department}
+            </if>
+            <if test="shopName != null and shopName != ''">
+                and shop_name = #{shopName}
+            </if>
+            <if test="shopId != null and shopId != ''">
+                and shop_id = #{shopId}
+            </if>
+            <if test="supplierName != null and supplierName != ''">
+                and supplier_name = #{supplierName}
+            </if>
+            <if test="shipTimeLimit != null and shipTimeLimit != ''">
+                and ship_time_limit = #{shipTimeLimit}
+            </if>
+            <if test="contractSubject != null and contractSubject != ''">
+                and contract_subject = #{contractSubject}
+            </if>
+            <if test="paymentAmount != null">
+                and payment_amount = #{paymentAmount}
+            </if>
+            <if test="nextRefundAmount != null">
+                and next_refund_amount = #{nextRefundAmount}
+            </if>
+            <if test="refundAmount != null">
+                and refund_amount = #{refundAmount}
+            </if>
+            <if test="liveOrderVolume != null">
+                and live_order_volume = #{liveOrderVolume}
+            </if>
+            <if test="catLv1Name != null and catLv1Name != ''">
+                and cat_lv1_name = #{catLv1Name}
+            </if>
+            <if test="md5 != null and md5 != ''">
+                and md5 = #{md5}
+            </if>
+            <if test="creator != null and creator != ''">
+                and creator = #{creator}
+            </if>
+            <if test="modifier != null and modifier != ''">
+                and modifier = #{modifier}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into bd_live_plan_product(gmt_create, gmt_modified, is_deleted, live_date, anchor_name, anchor_id, item_id, style_code, bar_code, item_name, live_price, item_img, brand, gaea_cat_lv1_name, purchase_principal, shop_type, department, shop_name, shop_id, supplier_name, ship_time_limit, contract_subject, payment_amount, next_refund_amount, refund_amount, live_order_volume, cat_lv1_name, md5, creator, modifier)
+        values (#{gmtCreate}, #{gmtModified}, #{isDeleted}, #{liveDate}, #{anchorName}, #{anchorId}, #{itemId}, #{styleCode}, #{barCode}, #{itemName}, #{livePrice}, #{itemImg}, #{brand}, #{gaeaCatLv1Name}, #{purchasePrincipal}, #{shopType}, #{department}, #{shopName}, #{shopId}, #{supplierName}, #{shipTimeLimit}, #{contractSubject}, #{paymentAmount}, #{nextRefundAmount}, #{refundAmount}, #{liveOrderVolume}, #{catLv1Name}, #{md5}, #{creator}, #{modifier})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into bd_live_plan_product(gmt_create, gmt_modified, is_deleted, live_date, anchor_name, anchor_id, item_id, style_code, bar_code, item_name, live_price, item_img, brand, gaea_cat_lv1_name, purchase_principal, shop_type, department, shop_name, shop_id, supplier_name, ship_time_limit, contract_subject, payment_amount, next_refund_amount, refund_amount, live_order_volume, cat_lv1_name, md5, creator, modifier)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.gmtCreate}, #{entity.gmtModified}, #{entity.isDeleted}, #{entity.liveDate}, #{entity.anchorName}, #{entity.anchorId}, #{entity.itemId}, #{entity.styleCode}, #{entity.barCode}, #{entity.itemName}, #{entity.livePrice}, #{entity.itemImg}, #{entity.brand}, #{entity.gaeaCatLv1Name}, #{entity.purchasePrincipal}, #{entity.shopType}, #{entity.department}, #{entity.shopName}, #{entity.shopId}, #{entity.supplierName}, #{entity.shipTimeLimit}, #{entity.contractSubject}, #{entity.paymentAmount}, #{entity.nextRefundAmount}, #{entity.refundAmount}, #{entity.liveOrderVolume}, #{entity.catLv1Name}, #{entity.md5}, #{entity.creator}, #{entity.modifier})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into bd_live_plan_product(gmt_create, gmt_modified, is_deleted, live_date, anchor_name, anchor_id, item_id, style_code, bar_code, item_name, live_price, item_img, brand, gaea_cat_lv1_name, purchase_principal, shop_type, department, shop_name, shop_id, supplier_name, ship_time_limit, contract_subject, payment_amount, next_refund_amount, refund_amount, live_order_volume, cat_lv1_name, md5, creator, modifier)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.gmtCreate}, #{entity.gmtModified}, #{entity.isDeleted}, #{entity.liveDate}, #{entity.anchorName}, #{entity.anchorId}, #{entity.itemId}, #{entity.styleCode}, #{entity.barCode}, #{entity.itemName}, #{entity.livePrice}, #{entity.itemImg}, #{entity.brand}, #{entity.gaeaCatLv1Name}, #{entity.purchasePrincipal}, #{entity.shopType}, #{entity.department}, #{entity.shopName}, #{entity.shopId}, #{entity.supplierName}, #{entity.shipTimeLimit}, #{entity.contractSubject}, #{entity.paymentAmount}, #{entity.nextRefundAmount}, #{entity.refundAmount}, #{entity.liveOrderVolume}, #{entity.catLv1Name}, #{entity.md5}, #{entity.creator}, #{entity.modifier})
+        </foreach>
+        on duplicate key update
+        gmt_create = values(gmt_create),
+        gmt_modified = values(gmt_modified),
+        is_deleted = values(is_deleted),
+        live_date = values(live_date),
+        anchor_name = values(anchor_name),
+        anchor_id = values(anchor_id),
+        item_id = values(item_id),
+        style_code = values(style_code),
+        bar_code = values(bar_code),
+        item_name = values(item_name),
+        live_price = values(live_price),
+        item_img = values(item_img),
+        brand = values(brand),
+        gaea_cat_lv1_name = values(gaea_cat_lv1_name),
+        purchase_principal = values(purchase_principal),
+        shop_type = values(shop_type),
+        department = values(department),
+        shop_name = values(shop_name),
+        shop_id = values(shop_id),
+        supplier_name = values(supplier_name),
+        ship_time_limit = values(ship_time_limit),
+        contract_subject = values(contract_subject),
+        payment_amount = values(payment_amount),
+        next_refund_amount = values(next_refund_amount),
+        refund_amount = values(refund_amount),
+        live_order_volume = values(live_order_volume),
+        cat_lv1_name = values(cat_lv1_name),
+        md5 = values(md5),
+        creator = values(creator),
+        modifier = values(modifier)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update bd_live_plan_product
+        <set>
+            <if test="gmtCreate != null">
+                gmt_create = #{gmtCreate},
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified = #{gmtModified},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted},
+            </if>
+            <if test="liveDate != null and liveDate != ''">
+                live_date = #{liveDate},
+            </if>
+            <if test="anchorName != null and anchorName != ''">
+                anchor_name = #{anchorName},
+            </if>
+            <if test="anchorId != null and anchorId != ''">
+                anchor_id = #{anchorId},
+            </if>
+            <if test="itemId != null and itemId != ''">
+                item_id = #{itemId},
+            </if>
+            <if test="styleCode != null and styleCode != ''">
+                style_code = #{styleCode},
+            </if>
+            <if test="barCode != null and barCode != ''">
+                bar_code = #{barCode},
+            </if>
+            <if test="itemName != null and itemName != ''">
+                item_name = #{itemName},
+            </if>
+            <if test="livePrice != null">
+                live_price = #{livePrice},
+            </if>
+            <if test="itemImg != null and itemImg != ''">
+                item_img = #{itemImg},
+            </if>
+            <if test="brand != null and brand != ''">
+                brand = #{brand},
+            </if>
+            <if test="gaeaCatLv1Name != null and gaeaCatLv1Name != ''">
+                gaea_cat_lv1_name = #{gaeaCatLv1Name},
+            </if>
+            <if test="purchasePrincipal != null and purchasePrincipal != ''">
+                purchase_principal = #{purchasePrincipal},
+            </if>
+            <if test="shopType != null and shopType != ''">
+                shop_type = #{shopType},
+            </if>
+            <if test="department != null and department != ''">
+                department = #{department},
+            </if>
+            <if test="shopName != null and shopName != ''">
+                shop_name = #{shopName},
+            </if>
+            <if test="shopId != null and shopId != ''">
+                shop_id = #{shopId},
+            </if>
+            <if test="supplierName != null and supplierName != ''">
+                supplier_name = #{supplierName},
+            </if>
+            <if test="shipTimeLimit != null and shipTimeLimit != ''">
+                ship_time_limit = #{shipTimeLimit},
+            </if>
+            <if test="contractSubject != null and contractSubject != ''">
+                contract_subject = #{contractSubject},
+            </if>
+            <if test="paymentAmount != null">
+                payment_amount = #{paymentAmount},
+            </if>
+            <if test="nextRefundAmount != null">
+                next_refund_amount = #{nextRefundAmount},
+            </if>
+            <if test="refundAmount != null">
+                refund_amount = #{refundAmount},
+            </if>
+            <if test="liveOrderVolume != null">
+                live_order_volume = #{liveOrderVolume},
+            </if>
+            <if test="catLv1Name != null and catLv1Name != ''">
+                cat_lv1_name = #{catLv1Name},
+            </if>
+            <if test="md5 != null and md5 != ''">
+                md5 = #{md5},
+            </if>
+            <if test="creator != null and creator != ''">
+                creator = #{creator},
+            </if>
+            <if test="modifier != null and modifier != ''">
+                modifier = #{modifier},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from bd_live_plan_product where id = #{id}
+    </delete>
+
+</mapper>
+

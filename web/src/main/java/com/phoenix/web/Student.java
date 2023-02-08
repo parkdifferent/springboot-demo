@@ -1,6 +1,10 @@
 package com.phoenix.web;
 
 import com.alibaba.fastjson.JSON;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +14,11 @@ import java.util.function.Predicate;
  * @Auther: tianfeng
  * @Date: 2020-08-17 20:12
  */
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 class Student{
     int stuId;
     int stuAge;
@@ -17,8 +26,6 @@ class Student{
 
     List<String> boxCodes;
 
-    public Student() {
-    }
 
     Student(int id, int age, String name){
         this.stuId = id;

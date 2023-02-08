@@ -1,16 +1,11 @@
 package com.phoenix.web;
 
 import com.alibaba.fastjson.JSON;
-import com.phoenix.web.controller.PayStrategy;
-import com.phoenix.web.controller.PayStrategyEnum;
-import com.phoenix.web.controller.StrategyFactory;
 import org.apache.pulsar.client.api.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import javax.annotation.Resource;
 
 /**
  * @author tianfeng

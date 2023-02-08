@@ -12,12 +12,12 @@ spring:
           filters: stat
           driver-class-name: com.mysql.jdbc.Driver
           #基本属性
-          url: jdbc:mysql://localhost:3306/my?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&allowMultiQueries=true&useSSL=false
+          url: jdbc:mysql://1.15.154.27:3306/my?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&allowMultiQueries=true&useSSL=false
           username: root
-          password: waitHope123@
+          password: xxxx
           #配置初始化大小/最小/最大
-          initial-size: 1
-          min-idle: 1
+          initial-size: 5
+          min-idle: 5
           max-active: 20
           #获取连接等待超时时间
           max-wait: 60000
@@ -32,6 +32,21 @@ spring:
           #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
           pool-prepared-statements: false
           max-pool-prepared-statement-per-connection-size: 20
+
+          # 启用 Stat Filter拦截器，用于统计监控信息
+          web-stat-filter.enabled: true
+          # 拦截URL的匹配规则
+          web-stat-filter.url-pattern: /*
+          # 排除不必要的URL
+          web-stat-filter.exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+          # 启用 Stat View Servlet，用于展示Druid的监控信息
+          stat-view-servlet.enabled: true
+          # 是否允许清空统计信息
+          stat-view-servlet.reset-enable: false
+          # 监控页面的URL、账号、密码
+          stat-view-servlet.url-pattern: /druid/*
+          stat-view-servlet.login-username: admin
+          stat-view-servlet.login-password: 123456
 
 mybatis:
   mapper-locations: classpath*:mapper/*.xml

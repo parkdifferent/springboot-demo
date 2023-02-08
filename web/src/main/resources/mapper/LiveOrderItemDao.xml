@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.LiveOrderItemDao">
+
+    <resultMap id="BaseResultMap" type="entity.LiveOrderItem">
+        <!--@Table live_order_item-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="orderNo" column="order_no" jdbcType="VARCHAR"/>
+        <result property="orderId" column="order_id" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="orderSource" column="order_source" jdbcType="INTEGER"/>
+        <result property="payTime" column="pay_time" jdbcType="TIMESTAMP"/>
+        <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+        <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+        <result property="isDeleted" column="is_deleted" jdbcType="INTEGER"/>
+        <result property="skuId" column="sku_id" jdbcType="VARCHAR"/>
+        <result property="shopName" column="shop_name" jdbcType="VARCHAR"/>
+        <result property="itemPicUrl" column="item_pic_url" jdbcType="VARCHAR"/>
+        <result property="itemName" column="item_name" jdbcType="VARCHAR"/>
+        <result property="spec" column="spec" jdbcType="VARCHAR"/>
+        <result property="num" column="num" jdbcType="INTEGER"/>
+        <result property="payPrice" column="pay_price" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="province" column="province" jdbcType="VARCHAR"/>
+        <result property="city" column="city" jdbcType="VARCHAR"/>
+        <result property="district" column="district" jdbcType="VARCHAR"/>
+        <result property="address" column="address" jdbcType="VARCHAR"/>
+        <result property="receiverName" column="receiver_name" jdbcType="VARCHAR"/>
+        <result property="receiverPhone" column="receiver_phone" jdbcType="VARCHAR"/>
+        <result property="anchorId" column="anchor_id" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          id, order_no, order_id, status, order_source, pay_time, gmt_create, gmt_modified, is_deleted, sku_id, shop_name, item_pic_url, item_name, spec, num, pay_price, user_id, province, city, district, address, receiver_name, receiver_phone, anchor_id
+        from live_order_item
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          id, order_no, order_id, status, order_source, pay_time, gmt_create, gmt_modified, is_deleted, sku_id, shop_name, item_pic_url, item_name, spec, num, pay_price, user_id, province, city, district, address, receiver_name, receiver_phone, anchor_id
+        from live_order_item
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="orderNo != null and orderNo != ''">
+                and order_no = #{orderNo}
+            </if>
+            <if test="orderId != null">
+                and order_id = #{orderId}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="orderSource != null">
+                and order_source = #{orderSource}
+            </if>
+            <if test="payTime != null">
+                and pay_time = #{payTime}
+            </if>
+            <if test="gmtCreate != null">
+                and gmt_create = #{gmtCreate}
+            </if>
+            <if test="gmtModified != null">
+                and gmt_modified = #{gmtModified}
+            </if>
+            <if test="isDeleted != null">
+                and is_deleted = #{isDeleted}
+            </if>
+            <if test="skuId != null and skuId != ''">
+                and sku_id = #{skuId}
+            </if>
+            <if test="shopName != null and shopName != ''">
+                and shop_name = #{shopName}
+            </if>
+            <if test="itemPicUrl != null and itemPicUrl != ''">
+                and item_pic_url = #{itemPicUrl}
+            </if>
+            <if test="itemName != null and itemName != ''">
+                and item_name = #{itemName}
+            </if>
+            <if test="spec != null and spec != ''">
+                and spec = #{spec}
+            </if>
+            <if test="num != null">
+                and num = #{num}
+            </if>
+            <if test="payPrice != null">
+                and pay_price = #{payPrice}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="province != null and province != ''">
+                and province = #{province}
+            </if>
+            <if test="city != null and city != ''">
+                and city = #{city}
+            </if>
+            <if test="district != null and district != ''">
+                and district = #{district}
+            </if>
+            <if test="address != null and address != ''">
+                and address = #{address}
+            </if>
+            <if test="receiverName != null and receiverName != ''">
+                and receiver_name = #{receiverName}
+            </if>
+            <if test="receiverPhone != null and receiverPhone != ''">
+                and receiver_phone = #{receiverPhone}
+            </if>
+            <if test="anchorId != null and anchorId != ''">
+                and anchor_id = #{anchorId}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          id, order_no, order_id, status, order_source, pay_time, gmt_create, gmt_modified, is_deleted, sku_id, shop_name, item_pic_url, item_name, spec, num, pay_price, user_id, province, city, district, address, receiver_name, receiver_phone, anchor_id
+        from my.live_order_item
+    </select>
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from live_order_item
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="orderNo != null and orderNo != ''">
+                and order_no = #{orderNo}
+            </if>
+            <if test="orderId != null">
+                and order_id = #{orderId}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="orderSource != null">
+                and order_source = #{orderSource}
+            </if>
+            <if test="payTime != null">
+                and pay_time = #{payTime}
+            </if>
+            <if test="gmtCreate != null">
+                and gmt_create = #{gmtCreate}
+            </if>
+            <if test="gmtModified != null">
+                and gmt_modified = #{gmtModified}
+            </if>
+            <if test="isDeleted != null">
+                and is_deleted = #{isDeleted}
+            </if>
+            <if test="skuId != null and skuId != ''">
+                and sku_id = #{skuId}
+            </if>
+            <if test="shopName != null and shopName != ''">
+                and shop_name = #{shopName}
+            </if>
+            <if test="itemPicUrl != null and itemPicUrl != ''">
+                and item_pic_url = #{itemPicUrl}
+            </if>
+            <if test="itemName != null and itemName != ''">
+                and item_name = #{itemName}
+            </if>
+            <if test="spec != null and spec != ''">
+                and spec = #{spec}
+            </if>
+            <if test="num != null">
+                and num = #{num}
+            </if>
+            <if test="payPrice != null">
+                and pay_price = #{payPrice}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="province != null and province != ''">
+                and province = #{province}
+            </if>
+            <if test="city != null and city != ''">
+                and city = #{city}
+            </if>
+            <if test="district != null and district != ''">
+                and district = #{district}
+            </if>
+            <if test="address != null and address != ''">
+                and address = #{address}
+            </if>
+            <if test="receiverName != null and receiverName != ''">
+                and receiver_name = #{receiverName}
+            </if>
+            <if test="receiverPhone != null and receiverPhone != ''">
+                and receiver_phone = #{receiverPhone}
+            </if>
+            <if test="anchorId != null and anchorId != ''">
+                and anchor_id = #{anchorId}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into live_order_item(order_no, order_id, status, order_source, pay_time, gmt_create, gmt_modified, is_deleted, sku_id, shop_name, item_pic_url, item_name, spec, num, pay_price, user_id, province, city, district, address, receiver_name, receiver_phone, anchor_id)
+        values (#{orderNo}, #{orderId}, #{status}, #{orderSource}, #{payTime}, #{gmtCreate}, #{gmtModified}, #{isDeleted}, #{skuId}, #{shopName}, #{itemPicUrl}, #{itemName}, #{spec}, #{num}, #{payPrice}, #{userId}, #{province}, #{city}, #{district}, #{address}, #{receiverName}, #{receiverPhone}, #{anchorId})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into live_order_item(order_no, order_id, status, order_source, pay_time, gmt_create, gmt_modified, is_deleted, sku_id, shop_name, item_pic_url, item_name, spec, num, pay_price, user_id, province, city, district, address, receiver_name, receiver_phone, anchor_id)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.orderNo}, #{entity.orderId}, #{entity.status}, #{entity.orderSource}, #{entity.payTime}, #{entity.gmtCreate}, #{entity.gmtModified}, #{entity.isDeleted}, #{entity.skuId}, #{entity.shopName}, #{entity.itemPicUrl}, #{entity.itemName}, #{entity.spec}, #{entity.num}, #{entity.payPrice}, #{entity.userId}, #{entity.province}, #{entity.city}, #{entity.district}, #{entity.address}, #{entity.receiverName}, #{entity.receiverPhone}, #{entity.anchorId})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into live_order_item(order_no, order_id, status, order_source, pay_time, gmt_create, gmt_modified, is_deleted, sku_id, shop_name, item_pic_url, item_name, spec, num, pay_price, user_id, province, city, district, address, receiver_name, receiver_phone, anchor_id)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.orderNo}, #{entity.orderId}, #{entity.status}, #{entity.orderSource}, #{entity.payTime}, #{entity.gmtCreate}, #{entity.gmtModified}, #{entity.isDeleted}, #{entity.skuId}, #{entity.shopName}, #{entity.itemPicUrl}, #{entity.itemName}, #{entity.spec}, #{entity.num}, #{entity.payPrice}, #{entity.userId}, #{entity.province}, #{entity.city}, #{entity.district}, #{entity.address}, #{entity.receiverName}, #{entity.receiverPhone}, #{entity.anchorId})
+        </foreach>
+        on duplicate key update
+        order_no = values(order_no),
+        order_id = values(order_id),
+        status = values(status),
+        order_source = values(order_source),
+        pay_time = values(pay_time),
+        gmt_create = values(gmt_create),
+        gmt_modified = values(gmt_modified),
+        is_deleted = values(is_deleted),
+        sku_id = values(sku_id),
+        shop_name = values(shop_name),
+        item_pic_url = values(item_pic_url),
+        item_name = values(item_name),
+        spec = values(spec),
+        num = values(num),
+        pay_price = values(pay_price),
+        user_id = values(user_id),
+        province = values(province),
+        city = values(city),
+        district = values(district),
+        address = values(address),
+        receiver_name = values(receiver_name),
+        receiver_phone = values(receiver_phone),
+        anchor_id = values(anchor_id)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update live_order_item
+        <set>
+            <if test="orderNo != null and orderNo != ''">
+                order_no = #{orderNo},
+            </if>
+            <if test="orderId != null">
+                order_id = #{orderId},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="orderSource != null">
+                order_source = #{orderSource},
+            </if>
+            <if test="payTime != null">
+                pay_time = #{payTime},
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create = #{gmtCreate},
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified = #{gmtModified},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted},
+            </if>
+            <if test="skuId != null and skuId != ''">
+                sku_id = #{skuId},
+            </if>
+            <if test="shopName != null and shopName != ''">
+                shop_name = #{shopName},
+            </if>
+            <if test="itemPicUrl != null and itemPicUrl != ''">
+                item_pic_url = #{itemPicUrl},
+            </if>
+            <if test="itemName != null and itemName != ''">
+                item_name = #{itemName},
+            </if>
+            <if test="spec != null and spec != ''">
+                spec = #{spec},
+            </if>
+            <if test="num != null">
+                num = #{num},
+            </if>
+            <if test="payPrice != null">
+                pay_price = #{payPrice},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="province != null and province != ''">
+                province = #{province},
+            </if>
+            <if test="city != null and city != ''">
+                city = #{city},
+            </if>
+            <if test="district != null and district != ''">
+                district = #{district},
+            </if>
+            <if test="address != null and address != ''">
+                address = #{address},
+            </if>
+            <if test="receiverName != null and receiverName != ''">
+                receiver_name = #{receiverName},
+            </if>
+            <if test="receiverPhone != null and receiverPhone != ''">
+                receiver_phone = #{receiverPhone},
+            </if>
+            <if test="anchorId != null and anchorId != ''">
+                anchor_id = #{anchorId},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from live_order_item where id = #{id}
+    </delete>
+
+</mapper>
+
