@@ -26,105 +26,61 @@ public class BdLivePlanProduct implements Serializable {
      * 软删除标志
      */
     private Integer isDeleted;
-    /**
-     * 直播日期
-     */
+
     private String liveDate;
-    /**
-     * 主播名称
-     */
+
     private String anchorName;
-    /**
-     * 主播id
-     */
+
     private String anchorId;
     /**
      * 商品id
      */
     private String itemId;
-    /**
-     * 货号/款号	
-     */
+
     private String styleCode;
-    /**
-     * 69码
-     */
+
     private String barCode;
     /**
      * 商品名称
      */
     private String itemName;
-    /**
-     * 直播价格（元）	
-     */
+
     private BigDecimal livePrice;
-    /**
-     * 商品图片
-     */
+
     private String itemImg;
     /**
      * 品牌
      */
     private String brand;
-    /**
-     * 盖亚一级类目
-     */
+
     private String gaeaCatLv1Name;
-    /**
-     * 招商采购负责人-对接人
-     */
+
     private String purchasePrincipal;
-    /**
-     * 店铺性质
-     */
+
     private String shopType;
-    /**
-     * 部门
-     */
+
     private String department;
-    /**
-     * 店铺名称
-     */
+
     private String shopName;
-    /**
-     * 店铺ID	
-     */
+
     private String shopId;
-    /**
-     * 供应商名称	
-     */
+
     private String supplierName;
-    /**
-     * 发货时间限制	
-     */
+
     private String shipTimeLimit;
-    /**
-     * 我司合同主体
-     */
+
     private String contractSubject;
-    /**
-     * 付款金额(分)
-     */
+
     private Integer paymentAmount;
-    /**
-     * 次日退款金额(分)
-     */
+
     private Integer nextRefundAmount;
-    /**
-     * 退款金额(分)
-     */
+
     private Integer refundAmount;
-    /**
-     * 直播订单量	
-     */
+
     private Integer liveOrderVolume;
-    /**
-     * 品类(一级类目)
-     */
+
     private String catLv1Name;
-    /**
-     * md5值
-     */
+
     private String md5;
     /**
      * 创建人

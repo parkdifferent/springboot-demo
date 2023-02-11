@@ -69,9 +69,7 @@ public class LiveOrderItem implements Serializable {
      * 数量
      */
     private Integer num;
-    /**
-     * 支付价
-     */
+
     private Integer payPrice;
     /**
      * 用户id
@@ -89,21 +87,13 @@ public class LiveOrderItem implements Serializable {
      * 区
      */
     private String district;
-    /**
-     * 详细地址
-     */
+
     private String address;
-    /**
-     * 收货人
-     */
+
     private String receiverName;
-    /**
-     * 收货人手机号
-     */
+
     private String receiverPhone;
-    /**
-     * 主播id
-     */
+
     private String anchorId;
 
 
